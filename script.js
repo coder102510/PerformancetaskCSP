@@ -1,3 +1,5 @@
+//Some code was generated through AI, and I edited the code to simplify it and improve it.
+
 const button = document.getElementById("button");
 
 //Makes sure this is the first time we are running the code
@@ -6,6 +8,7 @@ let firstAttempt = true;
 //This function is used to get the weather from the API
 async function getWeather(input) {
     try {
+        //This code was made freely availible by Visual Crossing
         const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${input}?unitGroup=us&key=XUQ5DBC4JP6RYDCPS2VFZSUUM&contentType=json`);
         const data = await response.json();
         return data;
@@ -63,7 +66,10 @@ function makeGrid(jsonData) {
 
 //This function is activated when the button is clicked, and triggers the other functions
 button.onclick = async function() {
-    let city = prompt("What city would you like to know the weather for?");
+    let city;
+    do {
+        city = prompt("What city would you like to know the weather for?");
+    } while (city === "" || city === null)
     const data = await getWeather(city);
     displayWeather(data);
 }
