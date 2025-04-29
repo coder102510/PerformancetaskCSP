@@ -1,10 +1,9 @@
-//Some code was generated through AI, and I edited the code to simplify it and improve it.
-
 const button = document.getElementById("button");
 
 //Makes sure this is the first time we are running the code
 let firstAttempt = true;
 
+//I used AI to generate the below function
 //This function is used to get the weather from the API
 async function getWeather(input) {
     try {
@@ -16,6 +15,8 @@ async function getWeather(input) {
         console.error(err);
     }
 } 
+//AI generated function ends here
+
 
 //This function is used to display the weather on the page
 async function displayWeather(json) {
@@ -67,9 +68,11 @@ function makeGrid(jsonData) {
 //This function is activated when the button is clicked, and triggers the other functions
 button.onclick = async function() {
     let city;
+    //AI generated the code below
     do {
         city = prompt("What city would you like to know the weather for?");
     } while (city === "" || city === null)
+    //End of AI generated code
     const data = await getWeather(city);
     displayWeather(data);
 }
